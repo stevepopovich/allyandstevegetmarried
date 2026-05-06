@@ -1,0 +1,15 @@
+{
+  "name": "allyandstevegetmarried",
+  "private": true,
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "npx --yes netlify-cli@17.38.1 dev",
+    "lint": "node -e \"console.log('No linter configured')\""
+  },
+  "dependencies": {
+    "googleapis": "144.0.0"
+  }
+}
