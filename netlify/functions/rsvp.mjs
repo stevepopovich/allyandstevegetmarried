@@ -42,17 +42,40 @@ function jsonResponse(status, body, requestOrigin) {
   };
 }
 
-function loadServiceAccountCredentials() {
-  const b64 = process.env.GOOGLE_SERVICE_ACCOUNT_JSON_B64;
-  const raw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
-  if (raw) {
-    return JSON.parse(raw);
+function normalizeCredentialJson(raw) {
+  let s = String(raw || "").replace(/^\uFEFF/, "").trim();
+  if ((s.startsWith("'") && s.endsWith("'")) || (s.startsWith('"') && s.endsWith('"'))) {
+    s = s.slice(1, -1).trim();
   }
+  return s;
+}
+
+function loadServiceAccountCredentials() {
+  const b64 = normalizeCredentialJson(process.env.GOOGLE_SERVICE_ACCOUNT_JSON_B64);
+  const raw = normalizeCredentialJson(process.env.GOOGLE_SERVICE_ACCOUNT_JSON);
+  const tryParseJson = (label, str) => {
+    try {
+      return JSON.parse(str);
+    } catch (err) {
+      const snippet = String(str || "").slice(0, 40);
+      const hint =
+        str.includes("\n") && !str.includes('"')
+          ? " Service account JSON in .env must be a single line, or use GOOGLE_SERVICE_ACCOUNT_JSON_B64 instead."
+          : "";
+      console.error(`${label}: invalid JSON.${hint}`, snippet ? `[${snippet}…]` : "");
+      throw err;
+    }
+  };
   if (b64) {
     const decoded = Buffer.from(b64, "base64").toString("utf8");
-    return JSON.parse(decoded);
+    return tryParseJson("GOOGLE_SERVICE_ACCOUNT_JSON_B64", normalizeCredentialJson(decoded));
   }
-  throw new Error("Missing GOOGLE_SERVICE_ACCOUNT_JSON or GOOGLE_SERVICE_ACCOUNT_JSON_B64");
+  if (raw) {
+    return tryParseJson("GOOGLE_SERVICE_ACCOUNT_JSON", raw);
+  }
+  throw new Error(
+    "Missing GOOGLE_SERVICE_ACCOUNT_JSON or GOOGLE_SERVICE_ACCOUNT_JSON_B64 (recommended: GOOGLE_SERVICE_ACCOUNT_JSON_B64 for local .env)"
+  );
 }
 
 function normalizeName(name) {

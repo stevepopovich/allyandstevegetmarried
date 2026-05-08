@@ -4,7 +4,6 @@
   --muted: #5c5651;
   --accent: #6b5b4f;
   --border: #e3ddd4;
-  --hero-placeholder: #d8d2c8;
   --max-width: 40rem;
 }
 
@@ -42,10 +41,9 @@ a:hover {
 }
 
 .hero-image {
-  width: min(100%, 720px);
-  aspect-ratio: 3 / 2;
-  max-height: 420px;
-  background: linear-gradient(135deg, var(--hero-placeholder), #efe9e0);
+  display: block;
+  width: min(100%, 425px);
+  height: auto;
   border-radius: 4px;
   margin-bottom: 1.5rem;
 }
