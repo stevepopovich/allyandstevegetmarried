@@ -60,7 +60,7 @@ function setMessage(text, kind) {
   messageEl.className = "form-message" + (kind ? ` ${kind}` : "");
 }
 
-form.addEventListener("submit", async (e) => {
+if (form && messageEl) form.addEventListener("submit", async (e) => {
   e.preventDefault();
   setMessage("");
 

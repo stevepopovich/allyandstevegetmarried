@@ -13,6 +13,11 @@
   to = "/quest.html"
   status = 200
 
+[[redirects]]
+  from = "/reception"
+  to = "/reception.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]

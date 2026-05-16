@@ -69,6 +69,33 @@ a:hover {
   font-size: 0.95rem;
 }
 
+.hero-save-the-date .hero-text h1 {
+  font-size: clamp(2.25rem, 7vw, 3rem);
+}
+
+.save-date-date {
+  margin: 0.75rem 0 0;
+  font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+  letter-spacing: 0.03em;
+  color: var(--text);
+}
+
+.cta-link {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cta-link:hover {
+  text-decoration: underline;
+}
+
+.page-cta {
+  text-align: center;
+  margin: 2rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
 main {
   max-width: var(--max-width);
   margin: 0 auto;
