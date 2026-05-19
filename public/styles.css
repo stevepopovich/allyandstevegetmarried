@@ -69,17 +69,6 @@ a:hover {
   font-size: 0.95rem;
 }
 
-.hero-save-the-date .hero-text h1 {
-  font-size: clamp(2.25rem, 7vw, 3rem);
-}
-
-.save-date-date {
-  margin: 0.75rem 0 0;
-  font-size: clamp(1.15rem, 3.5vw, 1.35rem);
-  letter-spacing: 0.03em;
-  color: var(--text);
-}
-
 .cta-link {
   font-weight: 600;
   text-decoration: none;
@@ -330,4 +319,56 @@ main {
   font-size: 0.85rem;
   color: var(--muted);
   border-top: 1px solid var(--border);
+}
+
+/* Home full-page scroll (index only) */
+body.home-fullpage {
+  margin: 0;
+  overflow: hidden;
+  background: #e0c9cc;
+}
+
+.home-scroll {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.home-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 2rem 1.25rem;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.home-panel--save-date {
+  background-color: #e0c9cc;
+}
+
+.home-panel--details {
+  background-color: #8a99c7;
+}
+
+.home-panel img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 70%;
+  max-height: calc((100vh - 4rem) * 0.7);
+  object-fit: contain;
+}
+
+.home-panel--details img {
+  max-width: 400px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-scroll {
+    scroll-behavior: auto;
+  }
 }
