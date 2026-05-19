@@ -18,6 +18,11 @@
   to = "/reception.html"
   status = 200
 
+[[redirects]]
+  from = "/family"
+  to = "/family.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]
