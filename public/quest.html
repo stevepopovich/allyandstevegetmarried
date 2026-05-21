@@ -688,39 +688,6 @@
         display: none;
       }
 
-      body.best-man .bm-music-toggle {
-        position: fixed;
-        top: 0.75rem;
-        right: 0.75rem;
-        z-index: 20;
-        font-family: "Press Start 2P", monospace;
-        font-size: clamp(0.4rem, 2.2vw, 0.5rem);
-        line-height: 1.6;
-        padding: 0.65rem 0.75rem;
-        border: 3px solid var(--bm-slate);
-        border-radius: 4px;
-        background: var(--bm-panel);
-        color: var(--bm-slate);
-        cursor: pointer;
-        box-shadow: 3px 3px 0 var(--bm-slate);
-        display: none;
-      }
-
-      body.best-man.is-game .bm-music-toggle,
-      body.best-man.is-reveal .bm-music-toggle {
-        display: block;
-      }
-
-      body.best-man .bm-music-toggle:active {
-        transform: translate(2px, 2px);
-        box-shadow: none;
-      }
-
-      body.best-man .bm-music-toggle[aria-pressed="true"] {
-        background: #e8e0d5;
-        color: #6b6b7a;
-      }
-
       @media (prefers-reduced-motion: reduce) {
         body.best-man .bm-battle-mew,
         body.best-man .bm-battle-ball,
@@ -888,17 +855,6 @@
       <audio id="bm-audio-victory" src="/audio/wild-victory.mp3" preload="auto"></audio>
     </div>
 
-    <button
-      type="button"
-      class="bm-music-toggle"
-      id="bm-music-toggle"
-      aria-pressed="false"
-      aria-label="Music on"
-      hidden
-    >
-      MUSIC ON
-    </button>
-
     <footer class="footer bm-footer--quest">
       <p>Ally &amp; Steve · September 2026</p>
     </footer>
@@ -932,31 +888,14 @@
 
         const audioBattle = document.getElementById("bm-audio-battle");
         const audioVictory = document.getElementById("bm-audio-victory");
-        const musicToggle = document.getElementById("bm-music-toggle");
-        const MUSIC_STORAGE_KEY = "bm-quest-music-muted";
         const MUSIC_VOLUME = 0.45;
+        const musicMuted = reduceMotion;
+
+        for (const el of [audioBattle, audioVictory]) {
+          if (el) el.muted = musicMuted;
+        }
 
         let currentTrack = null;
-
-        function readMusicMuted() {
-          try {
-            const stored = sessionStorage.getItem(MUSIC_STORAGE_KEY);
-            if (stored !== null) return stored === "1";
-          } catch (_) {}
-          return reduceMotion;
-        }
-
-        let musicMuted = readMusicMuted();
-
-        function applyMusicMuted() {
-          const muted = musicMuted;
-          if (audioBattle) audioBattle.muted = muted;
-          if (audioVictory) audioVictory.muted = muted;
-          if (!musicToggle) return;
-          musicToggle.setAttribute("aria-pressed", String(muted));
-          musicToggle.setAttribute("aria-label", muted ? "Music off" : "Music on");
-          musicToggle.textContent = muted ? "MUSIC OFF" : "MUSIC ON";
-        }
 
         function stopAll() {
           for (const el of [audioBattle, audioVictory]) {
@@ -998,24 +937,6 @@
             stopAll();
           }
         }
-
-        function updateMusicToggleVisibility(name) {
-          if (!musicToggle) return;
-          const show = name === "game" || name === "reveal";
-          musicToggle.hidden = !show;
-        }
-
-        applyMusicMuted();
-
-        musicToggle?.addEventListener("click", () => {
-          musicMuted = !musicMuted;
-          try {
-            sessionStorage.setItem(MUSIC_STORAGE_KEY, musicMuted ? "1" : "0");
-          } catch (_) {}
-          applyMusicMuted();
-          if (!musicMuted && currentTrack === "battle") playBattle();
-          else if (!musicMuted && currentTrack === "victory") playVictory();
-        });
 
         function wait(ms) {
           return new Promise((res) => setTimeout(res, reduceMotion ? Math.min(ms, 280) : ms));
@@ -1111,10 +1032,8 @@
           reveal.setAttribute("aria-hidden", String(!isReveal));
 
           body.classList.toggle("is-reveal", isReveal);
-          body.classList.toggle("is-game", isGame);
 
           switchMusicForStage(name);
-          updateMusicToggleVisibility(name);
 
           if (isReveal) {
             document.title = TITLE_REVEAL;
