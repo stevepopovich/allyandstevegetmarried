@@ -351,7 +351,30 @@ body.home-fullpage {
 }
 
 .home-panel--save-date {
+  position: relative;
   background-color: var(--save-date-bg);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: clamp(1.25rem, 4vh, 2.5rem);
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0.75rem;
+  border: none;
+  background: none;
+  transform: translateX(-50%);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scroll-hint img {
+  display: block;
+  width: clamp(2rem, 8vw, 3.25rem);
+  height: auto;
 }
 
 .home-panel--details {
