@@ -205,6 +205,29 @@
         text-align: center;
       }
 
+      body.best-man .bm-sound-hint {
+        font-family: "VT323", monospace;
+        font-size: 1.35rem;
+        line-height: 1.45;
+        text-align: center;
+        margin: 0 0 1.25rem;
+        padding: 0.9rem 1rem;
+        background: #f0ebe3;
+        border: 3px solid var(--bm-slate);
+        border-radius: 4px;
+        box-shadow: 3px 3px 0 var(--bm-slate);
+      }
+
+      body.best-man .bm-sound-hint-label {
+        display: block;
+        font-family: "Press Start 2P", monospace;
+        font-size: clamp(0.42rem, 2.4vw, 0.52rem);
+        color: var(--bm-red-dark);
+        letter-spacing: 0.04em;
+        line-height: 1.8;
+        margin-bottom: 0.5rem;
+      }
+
       body.best-man .bm-footer--quest {
         display: none;
       }
@@ -738,6 +761,9 @@
           <h1 class="bm-title" id="bm-intro-title">!! WILD CHALLENGE APPEARS !!</h1>
           <p class="bm-sub">Difficulty: ??? · Reward: ???</p>
         </header>
+        <p class="bm-sound-hint" role="note">
+          SOUND ON!!
+        </p>
         <div class="bm-actions">
           <button type="button" class="bm-btn bm-btn--yes" id="bm-begin">Begin challenge</button>
         </div>
