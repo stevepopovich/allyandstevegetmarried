@@ -436,7 +436,7 @@ body.home-fullpage {
   font-family: "Bodoni Moda", Georgia, serif;
   font-style: italic;
   font-weight: 800;
-  font-size: clamp(0.85rem, 1.6vw, 1.25rem);
+  font-size: 26px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
