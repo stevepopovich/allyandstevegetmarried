@@ -1,11 +1,11 @@
 document.querySelectorAll(".scroll-hint").forEach((hint) => {
-  const panel = hint.closest(".home-scroll")?.querySelector(".home-panel--details");
-  if (!panel) return;
+  const next = hint.closest(".home-panel")?.nextElementSibling;
+  if (!next?.classList.contains("home-panel")) return;
 
   hint.addEventListener("click", () => {
     const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
       ? "auto"
       : "smooth";
-    panel.scrollIntoView({ behavior, block: "start" });
+    next.scrollIntoView({ behavior, block: "start" });
   });
 });

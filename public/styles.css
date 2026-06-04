@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Centralwell";
+  src: url("/fonts/Centralwell.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #faf8f5;
   --text: #2c2825;
@@ -9,6 +17,11 @@
   --save-date-text: #e25c69;
   --event-bg: #8a99c7;
   --event-text: #3a3f6e;
+  --periwinkle-bg: #94a2cf;
+  --periwinkle-text: #3d4b7a;
+  --periwinkle-accent: #f2ccbb;
+  --mustard-bg: #c4b86a;
+  --mustard-text: #4a4420;
 }
 
 *,
@@ -377,13 +390,7 @@ body.home-fullpage {
   height: auto;
 }
 
-.home-panel--details {
-  background-color: var(--event-bg);
-  padding-left: calc(1.25rem + 16px);
-  padding-right: calc(1.25rem + 16px);
-}
-
-/* Save the date panel */
+/* Save the date panel (family page) */
 .save-date-card {
   display: flex;
   flex-direction: column;
@@ -512,5 +519,451 @@ body.family-page {
 @media (prefers-reduced-motion: reduce) {
   .home-scroll {
     scroll-behavior: auto;
+  }
+}
+
+/* Index six-panel redesign */
+.home-panel--hero {
+  position: relative;
+  background-color: var(--save-date-bg);
+  color: var(--save-date-text);
+}
+
+.hero-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: min(90vw, 52rem);
+  gap: clamp(2rem, 6vh, 4rem);
+}
+
+.hero-title {
+  margin: 0;
+  font-family: "Centralwell", cursive;
+  font-weight: 400;
+  font-size: clamp(2.75rem, 8vw, 5.625rem);
+  line-height: 1.1;
+}
+
+.hero-names {
+  margin: 0;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.1rem, 2.5vw, 1.75rem);
+  letter-spacing: 0.28em;
+}
+
+.placeholder-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 36rem);
+  min-height: clamp(8rem, 22vh, 14rem);
+  padding: 1.5rem;
+  border: 1px solid currentColor;
+  text-align: center;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+  opacity: 0.75;
+}
+
+.placeholder-box--wide {
+  width: min(100%, 42rem);
+}
+
+.placeholder-box--small {
+  width: 100%;
+  min-height: clamp(6rem, 14vh, 9rem);
+  max-width: 12rem;
+}
+
+.placeholder-box--corner {
+  position: absolute;
+  width: clamp(5rem, 14vw, 8rem);
+  min-height: clamp(5rem, 14vw, 8rem);
+  max-width: none;
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+
+.placeholder-box--corner-left {
+  bottom: clamp(1rem, 4vh, 2rem);
+  left: clamp(1rem, 4vw, 2rem);
+}
+
+.placeholder-box--corner-right {
+  bottom: clamp(1rem, 4vh, 2rem);
+  right: clamp(1rem, 4vw, 2rem);
+}
+
+.home-panel--save-date-v2 {
+  position: relative;
+  background-color: var(--save-date-bg);
+  color: var(--save-date-text);
+}
+
+.save-date-v2 {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: min(92vw, 56rem);
+  gap: clamp(1rem, 3vh, 2rem);
+}
+
+.save-date-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.save-date-star {
+  position: absolute;
+  color: var(--save-date-text);
+  opacity: 0.85;
+}
+
+.save-date-star svg {
+  display: block;
+  width: clamp(1.25rem, 3vw, 2rem);
+  height: auto;
+}
+
+.save-date-star--tl {
+  top: clamp(1.5rem, 5vh, 3rem);
+  left: clamp(1.5rem, 5vw, 3rem);
+}
+
+.save-date-star--tr {
+  top: clamp(1.5rem, 5vh, 3rem);
+  right: clamp(1.5rem, 5vw, 3rem);
+}
+
+.save-date-star--bl {
+  bottom: clamp(1.5rem, 5vh, 3rem);
+  left: clamp(1.5rem, 5vw, 3rem);
+}
+
+.save-date-star--br {
+  bottom: clamp(1.5rem, 5vh, 3rem);
+  right: clamp(1.5rem, 5vw, 3rem);
+}
+
+.save-date-v2__title {
+  margin: 0;
+  font-family: "Centralwell", cursive;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 7vw, 4.875rem);
+  line-height: 1.05;
+}
+
+.save-date-v2__date {
+  margin: 0;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(1rem, 2.2vw, 1.5625rem);
+}
+
+.date-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+  margin: clamp(0.5rem, 2vh, 1.5rem) 0;
+}
+
+.date-strip__num {
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(2.5rem, 10vw, 5.3125rem);
+  line-height: 1;
+}
+
+.date-strip__highlight {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15em 0.35em;
+}
+
+.date-strip__highlight::before {
+  content: "";
+  position: absolute;
+  inset: -0.15em -0.25em;
+  border: 2px solid currentColor;
+  border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+}
+
+.save-date-v2__time {
+  margin: 0;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+}
+
+.home-panel--celebration {
+  background-color: var(--periwinkle-bg);
+  color: var(--periwinkle-text);
+}
+
+.celebration-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: min(90vw, 44rem);
+  gap: clamp(1.5rem, 4vh, 2.5rem);
+}
+
+.bodoni-stack {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.bodoni-stack__small {
+  display: block;
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+}
+
+.bodoni-stack__large {
+  display: block;
+  font-family: "Bodoni Moda", Georgia, serif;
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(2rem, 5.5vw, 2.8125rem);
+  letter-spacing: 0.04em;
+}
+
+.celebration-location {
+  margin: 0;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.75rem;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.8rem, 1.4vw, 0.9375rem);
+  text-decoration: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.pill-btn:hover {
+  filter: brightness(1.08);
+  text-decoration: none;
+}
+
+.pill-btn--filled {
+  background: var(--periwinkle-text);
+  color: var(--periwinkle-accent);
+  border: none;
+}
+
+.pill-btn--outline {
+  background: transparent;
+  color: inherit;
+  border: 1px solid currentColor;
+}
+
+.home-panel--event-flow {
+  background-color: var(--periwinkle-bg);
+  color: var(--periwinkle-text);
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+}
+
+.event-flow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vh, 3rem);
+  width: 100%;
+  max-width: min(95vw, 64rem);
+  align-items: start;
+}
+
+.event-flow__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(0.75rem, 2vh, 1.25rem);
+}
+
+.event-flow__heading {
+  margin: 0;
+  font-family: "Centralwell", cursive;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 4.5vw, 2.8125rem);
+  line-height: 1.1;
+}
+
+.event-flow__subtext {
+  margin: 0;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 1.6vw, 1.25rem);
+  line-height: 1.5;
+}
+
+.event-flow__connectors {
+  display: none;
+}
+
+.home-panel--details {
+  position: relative;
+  align-items: stretch;
+  justify-content: flex-start;
+  background-color: var(--mustard-bg);
+  color: var(--mustard-text);
+  padding: clamp(2rem, 5vh, 3.5rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.details-page {
+  width: 100%;
+  max-width: none;
+}
+
+.details-page__header {
+  margin: 0 0 clamp(2rem, 5vh, 3rem);
+  line-height: 1.05;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vh, 3rem);
+  width: 100%;
+}
+
+.details-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: clamp(0.75rem, 2vh, 1rem);
+}
+
+.details-col__heading {
+  margin: 0;
+  font-family: "Centralwell", cursive;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 4.5vw, 2.8125rem);
+}
+
+.details-col__text {
+  margin: 0;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.85rem, 1.4vw, 0.9375rem);
+  line-height: 1.6;
+}
+
+.details-col__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.home-panel--rsvp {
+  position: relative;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--mustard-bg);
+  color: var(--mustard-text);
+  padding: clamp(1.5rem, 4vh, 2.5rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.rsvp-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: min(95vw, 40rem);
+  min-height: calc(100vh - 4rem);
+  margin: 0 auto;
+}
+
+.rsvp-page__header {
+  margin: 0 0 clamp(1.5rem, 4vh, 2.5rem);
+  line-height: 1.05;
+  flex-shrink: 0;
+}
+
+.rsvp-page__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.home-panel--rsvp .section-rsvp {
+  width: 100%;
+  max-width: 28rem;
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(74, 68, 32, 0.25);
+  border-radius: 4px;
+}
+
+.home-panel--rsvp .section-rsvp h2 {
+  display: none;
+}
+
+.home-panel--rsvp .deadline {
+  color: var(--mustard-text);
+  opacity: 0.85;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 0.9rem;
+}
+
+.home-panel--rsvp .field span,
+.home-panel--rsvp .attending-fieldset legend {
+  font-family: "Montserrat", system-ui, sans-serif;
+  color: var(--mustard-text);
+}
+
+.home-panel--rsvp .field input {
+  border-color: rgba(74, 68, 32, 0.35);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.home-panel--rsvp .submit {
+  background: var(--mustard-text);
+  color: var(--mustard-bg);
+  font-family: "Montserrat", system-ui, sans-serif;
+  border-radius: 999px;
+}
+
+@media (min-width: 768px) {
+  .event-flow {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .details-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
   }
 }
