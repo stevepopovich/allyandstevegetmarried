@@ -1,1 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 347.98 200.44"><defs><style>.cls-1{fill:none;stroke:#e65d65;stroke-linecap:round;stroke-linejoin:round;stroke-width:6px;}</style></defs><polyline class="cls-1" points="3 3.25 173.83 135.3 344.98 3"/><polyline class="cls-1" points="3 65.39 173.83 197.44 344.98 65.14"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 347.98 200.44" aria-hidden="true">
+  <polyline
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="6"
+    points="3 3.25 173.83 135.3 344.98 3"
+  />
+  <polyline
+    fill="none"
+    stroke="currentColor"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    stroke-width="6"
+    points="3 65.39 173.83 197.44 344.98 65.14"
+  />
+</svg>
