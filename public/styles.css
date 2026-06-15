@@ -660,6 +660,7 @@ body.family-page {
   position: relative;
   background-color: var(--save-date-bg);
   color: var(--save-date-text);
+  padding-bottom: clamp(5rem, 14vh, 7rem);
 }
 
 .hero-stack {
@@ -669,7 +670,7 @@ body.family-page {
   text-align: center;
   width: 100%;
   max-width: min(90vw, 52rem);
-  gap: clamp(2rem, 6vh, 4rem);
+  gap: clamp(0.75rem, 2.5vh, 1.5rem);
 }
 
 .hero-title {
