@@ -738,30 +738,35 @@ body.family-page {
   height: auto;
 }
 
+.section-illustration--wide {
+  max-width: min(100%, 42rem);
+}
+
 .section-illustration--small {
   max-width: 12rem;
 }
 
 .section-illustration--corner {
-  width: clamp(5rem, 14vw, 8rem);
+  width: clamp(15rem, 42vw, 24rem);
 }
 
 .rsvp-corners {
   position: absolute;
-  bottom: clamp(1rem, 4vh, 2rem);
+  bottom: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: clamp(0.5rem, 2vw, 1rem);
   pointer-events: none;
 }
 
 .rsvp-corners--left {
-  left: clamp(1rem, 4vw, 2rem);
+  left: 0;
+  align-items: flex-start;
 }
 
 .rsvp-corners--right {
-  right: clamp(1rem, 4vw, 2rem);
+  right: 0;
+  align-items: flex-end;
 }
 
 .home-panel--save-date-v2 {
@@ -1023,6 +1028,26 @@ body.family-page {
   gap: clamp(0.75rem, 2vh, 1.25rem);
 }
 
+.event-flow__col > :first-child {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 12rem;
+  height: clamp(6rem, 14vh, 9rem);
+  margin-inline: auto;
+}
+
+.event-flow__col > img:first-child {
+  object-fit: contain;
+  object-position: top center;
+}
+
+.event-flow__col > .placeholder-box:first-child {
+  min-height: unset;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
 .event-flow__heading {
   margin: 0;
   font-family: "Centralwell", cursive;
@@ -1102,6 +1127,13 @@ body.home-fullpage:not(.family-page) .details-grid {
   font-weight: 500;
   font-size: clamp(0.85rem, 1.4vw, 0.9375rem);
   line-height: 1.6;
+}
+
+.details-col__hotel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .details-col__buttons {
