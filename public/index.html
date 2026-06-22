@@ -21,7 +21,6 @@
     <div class="home-scroll">
       <section class="home-panel home-panel--hero" aria-label="We're getting married">
         <div class="hero-stack">
-          <h1 class="hero-title">We're Getting Married</h1>
           <img
             class="section-illustration section-illustration--wide"
             src="/just-married-car.svg"
@@ -35,28 +34,6 @@
 
       <section class="home-panel home-panel--save-date-v2" aria-label="Save the date">
         <div class="save-date-v2">
-          <div class="save-date-stars" aria-hidden="true">
-            <span class="save-date-star save-date-star--tl">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 0l2.5 7.5H22l-6 4.5 2.5 7.5L12 15l-6.5 4.5 2.5-7.5L2 7.5h7.5z" />
-              </svg>
-            </span>
-            <span class="save-date-star save-date-star--tr">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 0l2.5 7.5H22l-6 4.5 2.5 7.5L12 15l-6.5 4.5 2.5-7.5L2 7.5h7.5z" />
-              </svg>
-            </span>
-            <span class="save-date-star save-date-star--bl">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 0l2.5 7.5H22l-6 4.5 2.5 7.5L12 15l-6.5 4.5 2.5-7.5L2 7.5h7.5z" />
-              </svg>
-            </span>
-            <span class="save-date-star save-date-star--br">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 0l2.5 7.5H22l-6 4.5 2.5 7.5L12 15l-6.5 4.5 2.5-7.5L2 7.5h7.5z" />
-              </svg>
-            </span>
-          </div>
           <h2 class="save-date-v2__title">Save the Date</h2>
           <p class="save-date-v2__date">Saturday, September 2026</p>
           <div class="date-strip" aria-label="September 10 through 14, 2026 — wedding on the 12th">
@@ -83,7 +60,6 @@
             width="1450"
             height="1085"
           />
-          <p class="celebration-location">The Athletic Club, Columbus, Ohio</p>
           <a
             class="pill-btn pill-btn--filled pill-btn--maps"
             href="https://www.google.com/maps/place/The+Athletic+Club+of+Columbus/@39.9629495,-82.9995197,17z/data=!3m1!4b1!4m6!3m5!1s0x88388f324618e2c5:0xdf2982cb440f027a!8m2!3d39.9629495!4d-82.9969448!16s%2Fm%2F02vzgst?entry=ttu"
@@ -96,7 +72,7 @@
                 d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"
               />
             </svg>
-            <span>View on Google Maps</span>
+            <span>The Athletic Club</span>
           </a>
         </div>
       </section>
@@ -156,13 +132,21 @@
                 height="1443"
               />
               <h3 class="details-col__heading">Hotel</h3>
-              <p class="details-col__text">
-                The Plaza Hotel<br />
-                75 E State Street,<br />
-                Columbus, Ohio
-              </p>
               <div class="details-col__buttons">
-                <a class="pill-btn pill-btn--outline" href="#">Link to hotel</a>
+                <a
+                  class="pill-btn pill-btn--outline"
+                  href="https://www.google.com/maps/place/The+Plaza+Hotel+Columbus+at+Capitol+Square/@39.960031,-82.997808,17z"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg class="pill-btn__icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"
+                    />
+                  </svg>
+                  <span>The Plaza Hotel</span>
+                </a>
               </div>
             </div>
             <div class="details-col">
@@ -175,13 +159,12 @@
               />
               <h3 class="details-col__heading">Gifts</h3>
               <div class="details-col__buttons">
-                <a class="pill-btn pill-btn--outline" href="#">Crate &amp; Barrel Registry</a>
                 <a
                   class="pill-btn pill-btn--outline"
                   href="https://withjoy.com/steven-and-ally-sep-2026/registry"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >Honeymoon fund</a
+                  >Registry</a
                 >
               </div>
             </div>
@@ -201,6 +184,10 @@
       </section>
 
       <section class="home-panel home-panel--rsvp" aria-label="RSVP">
+        <p class="rsvp-page__header bodoni-stack">
+          <span class="bodoni-stack__small">Kindly</span>
+          <span class="bodoni-stack__large">RSVP</span>
+        </p>
         <div class="rsvp-corners rsvp-corners--left" aria-hidden="true">
           <img class="section-illustration section-illustration--corner" src="/rsvp-1.svg" alt="" width="560" height="576" />
           <img class="section-illustration section-illustration--corner" src="/rsvp-2.svg" alt="" width="596" height="431" />
@@ -209,10 +196,6 @@
           <img class="section-illustration section-illustration--corner" src="/rsvp-3.svg" alt="" width="576" height="543" />
         </div>
         <div class="rsvp-page">
-          <p class="rsvp-page__header bodoni-stack">
-            <span class="bodoni-stack__small">Kindly</span>
-            <span class="bodoni-stack__large">RSVP</span>
-          </p>
           <div class="rsvp-page__body">
             <section id="rsvp" class="section section-rsvp">
               <h2>RSVP</h2>

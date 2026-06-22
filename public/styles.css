@@ -584,6 +584,22 @@ body.family-page {
   padding: clamp(2rem, 5vh, 3.5rem) clamp(1.25rem, 4vw, 2.5rem);
 }
 
+.home-panel--ceremony .bodoni-stack {
+  position: absolute;
+  top: clamp(1.5rem, 5vh, 3rem);
+  left: clamp(1.5rem, 5vw, 3rem);
+  z-index: 1;
+  text-align: left;
+}
+
+.home-panel--ceremony .bodoni-stack__small {
+  font-size: clamp(1.425rem, 2.7vw, 1.875rem);
+}
+
+.home-panel--ceremony .bodoni-stack__large {
+  font-size: clamp(3rem, 8.25vw, 4.21875rem);
+}
+
 .ceremony-page {
   display: flex;
   flex-direction: column;
@@ -594,7 +610,7 @@ body.family-page {
 }
 
 .ceremony-page__header {
-  margin: 0 0 clamp(1.5rem, 4vh, 2rem);
+  margin: 0;
   text-align: left;
 }
 
@@ -748,12 +764,13 @@ body.family-page {
 }
 
 .section-illustration--corner {
-  width: clamp(15rem, 42vw, 24rem);
+  width: clamp(18rem, 50.4vw, 28.8rem);
 }
 
 .rsvp-corners {
   position: absolute;
   bottom: 0;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   gap: clamp(0.5rem, 2vw, 1rem);
@@ -777,7 +794,6 @@ body.family-page {
 }
 
 .save-date-v2 {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -785,44 +801,6 @@ body.family-page {
   width: 100%;
   max-width: min(92vw, 56rem);
   gap: clamp(1rem, 3vh, 2rem);
-}
-
-.save-date-stars {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.save-date-star {
-  position: absolute;
-  color: var(--save-date-text);
-  opacity: 0.85;
-}
-
-.save-date-star svg {
-  display: block;
-  width: clamp(1.25rem, 3vw, 2rem);
-  height: auto;
-}
-
-.save-date-star--tl {
-  top: clamp(1.5rem, 5vh, 3rem);
-  left: clamp(1.5rem, 5vw, 3rem);
-}
-
-.save-date-star--tr {
-  top: clamp(1.5rem, 5vh, 3rem);
-  right: clamp(1.5rem, 5vw, 3rem);
-}
-
-.save-date-star--bl {
-  bottom: clamp(1.5rem, 5vh, 3rem);
-  left: clamp(1.5rem, 5vw, 3rem);
-}
-
-.save-date-star--br {
-  bottom: clamp(1.5rem, 5vh, 3rem);
-  right: clamp(1.5rem, 5vw, 3rem);
 }
 
 .save-date-v2__title {
@@ -883,6 +861,22 @@ body.family-page {
 .home-panel--celebration {
   background-color: var(--periwinkle-bg);
   color: var(--periwinkle-text);
+}
+
+.home-panel--celebration .bodoni-stack {
+  position: absolute;
+  top: clamp(1.5rem, 5vh, 3rem);
+  left: clamp(1.5rem, 5vw, 3rem);
+  z-index: 1;
+  text-align: left;
+}
+
+.home-panel--celebration .bodoni-stack__small {
+  font-size: clamp(1.425rem, 2.7vw, 1.875rem);
+}
+
+.home-panel--celebration .bodoni-stack__large {
+  font-size: clamp(3rem, 8.25vw, 4.21875rem);
 }
 
 .celebration-stack {
@@ -966,9 +960,8 @@ body.family-page {
 .pill-btn--maps {
   padding: 0.85rem 2rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: clamp(0.75rem, 1.3vw, 0.875rem);
+  letter-spacing: 0.04em;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
   box-shadow:
     0 2px 0 rgba(61, 75, 122, 0.35),
     0 6px 20px rgba(61, 75, 122, 0.22);
@@ -1032,8 +1025,8 @@ body.family-page {
 .event-flow__col > :first-child {
   flex-shrink: 0;
   width: 100%;
-  max-width: 12rem;
-  height: clamp(6rem, 14vh, 9rem);
+  max-width: 21.6rem;
+  height: clamp(10.8rem, 25.2vh, 16.2rem);
   margin-inline: auto;
 }
 
@@ -1076,6 +1069,14 @@ body.family-page {
   background-color: var(--mustard-bg);
   color: var(--mustard-text);
   padding: clamp(2rem, 5vh, 3.5rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.home-panel--details .bodoni-stack__small {
+  font-size: clamp(1.425rem, 2.7vw, 1.875rem);
+}
+
+.home-panel--details .bodoni-stack__large {
+  font-size: clamp(3rem, 8.25vw, 4.21875rem);
 }
 
 .details-page {
@@ -1154,7 +1155,25 @@ body.home-fullpage:not(.family-page) .details-grid {
   padding: clamp(1.5rem, 4vh, 2.5rem) clamp(1.25rem, 4vw, 2.5rem);
 }
 
+.home-panel--rsvp .bodoni-stack {
+  position: absolute;
+  top: clamp(1.5rem, 5vh, 3rem);
+  left: clamp(1.5rem, 5vw, 3rem);
+  z-index: 2;
+  text-align: left;
+}
+
+.home-panel--rsvp .bodoni-stack__small {
+  font-size: clamp(1.425rem, 2.7vw, 1.875rem);
+}
+
+.home-panel--rsvp .bodoni-stack__large {
+  font-size: clamp(3rem, 8.25vw, 4.21875rem);
+}
+
 .rsvp-page {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -1164,7 +1183,7 @@ body.home-fullpage:not(.family-page) .details-grid {
 }
 
 .rsvp-page__header {
-  margin: 0 0 clamp(1.5rem, 4vh, 2.5rem);
+  margin: 0;
   line-height: 1.05;
   flex-shrink: 0;
 }
@@ -1215,6 +1234,12 @@ body.home-fullpage:not(.family-page) .details-grid {
   color: var(--mustard-bg);
   font-family: "Montserrat", system-ui, sans-serif;
   border-radius: 999px;
+}
+
+@media (max-width: 767px) {
+  .rsvp-corners {
+    display: none;
+  }
 }
 
 @media (min-width: 768px) {
