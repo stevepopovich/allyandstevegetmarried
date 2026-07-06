@@ -523,59 +523,59 @@ body.family-page {
   gap: clamp(1.5rem, 4vh, 2.5rem);
 }
 
-.family-calendar {
+.family-save-dates__cols {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: clamp(0.35rem, 1.5vw, 1rem);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 5vw, 4rem);
   width: 100%;
-  max-width: min(95vw, 52rem);
+  max-width: min(92vw, 56rem);
 }
 
-.family-calendar__col {
+.family-save-dates__col {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: clamp(0.35rem, 1vh, 0.65rem);
+  gap: clamp(0.5rem, 1.5vh, 0.75rem);
 }
 
-.family-calendar__day {
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-weight: 500;
-  font-size: clamp(0.55rem, 1.4vw, 0.85rem);
-  line-height: 1.2;
+.family-save-dates__illustration {
+  display: block;
+  height: min(33vh, 16.5rem);
+  width: auto;
+  max-width: min(46vw, 22rem);
+  margin-top: clamp(0.5rem, 2vh, 1.25rem);
+  filter: var(--illustration-filter);
 }
 
-.family-calendar__num {
-  font-family: "Bodoni Moda", Georgia, serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(1.75rem, 6vw, 4.5rem);
-  line-height: 1;
+.family-save-dates__col .save-date-v2__illustrations {
+  margin-top: clamp(0.5rem, 2vh, 1.25rem);
+  gap: clamp(0.75rem, 3vw, 1.5rem);
 }
 
-.family-calendar__num--highlight {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.1em 0.25em;
+.family-save-dates__col .save-date-v2__illustration--cake,
+.family-save-dates__col .save-date-v2__illustration--toast {
+  height: min(30vh, 15rem);
+  width: auto;
+  max-width: min(24vw, 13rem);
 }
 
-.family-calendar__num--highlight::before {
-  content: "";
-  position: absolute;
-  inset: -0.12em -0.2em;
-  border: 2px solid currentColor;
-  border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
-}
+@media (max-width: 640px) {
+  .family-save-dates__cols {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 6vh, 3rem);
+  }
 
-.family-calendar__time {
-  font-family: "Montserrat", system-ui, sans-serif;
-  font-weight: 500;
-  font-size: clamp(0.5rem, 1.1vw, 0.75rem);
-  line-height: 1.35;
-  max-width: 9rem;
+  .family-save-dates__illustration {
+    height: min(24vh, 12.1rem);
+    max-width: min(44vw, 15.4rem);
+  }
+
+  .family-save-dates__col .save-date-v2__illustration--cake,
+  .family-save-dates__col .save-date-v2__illustration--toast {
+    height: min(22vh, 11rem);
+    max-width: min(40vw, 14rem);
+  }
 }
 
 .home-panel--ceremony {
@@ -635,22 +635,6 @@ body.family-page {
   letter-spacing: 0.22em;
 }
 
-@media (max-width: 520px) {
-  .family-calendar {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0.25rem;
-  }
-
-  .family-calendar__day {
-    font-size: 0.5rem;
-  }
-
-  .family-calendar__time {
-    font-size: 0.45rem;
-    max-width: 100%;
-  }
-}
-
 @media (min-width: 768px) {
   .event-duo {
     flex-direction: row;
@@ -692,18 +676,26 @@ body.family-page {
 }
 
 .hero-title {
-  margin: 0;
+  margin: clamp(2rem, 8vh, 5rem) 0 calc(-1 * clamp(0.35rem, 1.25vh, 0.85rem)) 0;
   font-family: "Centralwell", cursive;
   font-weight: 400;
-  font-size: clamp(2.75rem, 8vw, 5.625rem);
+  font-size: min(100pt, 11vw);
   line-height: 1.1;
+  white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+  .hero-title {
+    white-space: normal;
+    font-size: clamp(2rem, 10vw, 100pt);
+  }
 }
 
 .hero-names {
   margin: 0;
-  font-family: "Centralwell", cursive;
-  font-weight: 400;
-  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 28pt;
   line-height: 1.1;
 }
 
@@ -803,62 +795,83 @@ body.family-page {
   text-align: center;
   width: 100%;
   max-width: min(92vw, 56rem);
-  gap: clamp(1rem, 3vh, 2rem);
+  gap: clamp(0.75rem, 2.5vh, 1.25rem);
 }
 
 .save-date-v2__title {
-  margin: 0;
+  margin: 0 0 clamp(1rem, 3vh, 2rem);
   font-family: "Centralwell", cursive;
   font-weight: 400;
-  font-size: clamp(2.5rem, 7vw, 4.875rem);
+  font-size: min(110pt, 12vw);
   line-height: 1.05;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .save-date-v2__title {
+    white-space: normal;
+    font-size: clamp(2.25rem, 11vw, 110pt);
+  }
 }
 
 .save-date-v2__date {
   margin: 0;
   font-family: "Montserrat", system-ui, sans-serif;
   font-weight: 500;
-  font-size: clamp(1rem, 2.2vw, 1.5625rem);
-}
-
-.date-strip {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: clamp(0.5rem, 2vw, 1.5rem);
-  margin: clamp(0.5rem, 2vh, 1.5rem) 0;
-}
-
-.date-strip__num {
-  font-family: "Bodoni Moda", Georgia, serif;
-  font-style: italic;
-  font-weight: 600;
-  font-size: clamp(2.5rem, 10vw, 5.3125rem);
-  line-height: 1;
-}
-
-.date-strip__highlight {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.15em 0.35em;
-}
-
-.date-strip__highlight::before {
-  content: "";
-  position: absolute;
-  inset: -0.15em -0.25em;
-  border: 2px solid currentColor;
-  border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
+  font-size: min(30pt, 4vw);
+  line-height: 1.3;
+  white-space: nowrap;
 }
 
 .save-date-v2__time {
   margin: 0;
   font-family: "Montserrat", system-ui, sans-serif;
   font-weight: 500;
-  font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+  font-size: min(20pt, 2.8vw);
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .save-date-v2__date,
+  .save-date-v2__time {
+    white-space: normal;
+  }
+}
+
+.save-date-v2__illustrations {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(0.5rem, 2vw, 1.25rem);
+  margin-top: clamp(0.5rem, 2vh, 1.25rem);
+  width: 100%;
+}
+
+.save-date-v2__illustration {
+  display: block;
+  height: auto;
+  filter: var(--illustration-filter);
+}
+
+.save-date-v2__illustration--cake {
+  width: min(44.8vw, 25.2rem);
+  align-self: flex-end;
+}
+
+.save-date-v2__illustration--toast {
+  width: min(28vw, 15.5rem);
+  align-self: flex-end;
+}
+
+@media (max-width: 480px) {
+  .save-date-v2__illustration--cake {
+    width: min(53.2vw, 15.4rem);
+  }
+
+  .save-date-v2__illustration--toast {
+    width: min(34vw, 9.5rem);
+  }
 }
 
 .home-panel--celebration {
@@ -1049,7 +1062,7 @@ body.family-page {
   margin: 0;
   font-family: "Centralwell", cursive;
   font-weight: 400;
-  font-size: clamp(1.75rem, 4.5vw, 2.8125rem);
+  font-size: clamp(2.52rem, 6.48vw, 4.05rem);
   line-height: 1.1;
 }
 
@@ -1123,7 +1136,7 @@ body.home-fullpage:not(.family-page) .details-grid {
   margin: 0;
   font-family: "Centralwell", cursive;
   font-weight: 400;
-  font-size: clamp(1.75rem, 4.5vw, 2.8125rem);
+  font-size: clamp(2.52rem, 6.48vw, 4.05rem);
   line-height: 1;
 }
 
