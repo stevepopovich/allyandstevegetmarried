@@ -23,8 +23,102 @@ function createScrollHint(next) {
   return hint;
 }
 
+function createHomeNav(panels) {
+  const nav = document.createElement("nav");
+  nav.className = "home-nav";
+  nav.setAttribute("aria-label", "Page sections");
+
+  const buttons = [];
+
+  panels.forEach((panel) => {
+    const iconName = panel.getAttribute("data-nav-icon");
+    if (!iconName) return;
+
+    const label = panel.getAttribute("aria-label") || "Section";
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "home-nav__btn";
+    button.setAttribute("aria-label", label);
+    button.dataset.target = panel.id;
+
+    const icon = document.createElement("i");
+    icon.className = "home-nav__icon";
+    icon.setAttribute("data-lucide", iconName);
+    icon.setAttribute("aria-hidden", "true");
+    button.appendChild(icon);
+
+    button.addEventListener("click", () => {
+      panel.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
+    });
+
+    nav.appendChild(button);
+    buttons.push({ button, panel });
+  });
+
+  return { nav, buttons };
+}
+
+function renderNavIcons(nav) {
+  if (typeof lucide === "undefined" || typeof lucide.createIcons !== "function") {
+    return;
+  }
+  lucide.createIcons({
+    attrs: {
+      class: "home-nav__icon",
+      "stroke-width": 1.75,
+      "aria-hidden": "true",
+    },
+  });
+}
+
+function bindNavActiveState(scrollRoot, buttons) {
+  if (!buttons.length) return;
+
+  const setActive = (activePanel) => {
+    buttons.forEach(({ button, panel }) => {
+      const isActive = panel === activePanel;
+      button.classList.toggle("is-active", isActive);
+      if (isActive) {
+        button.setAttribute("aria-current", "true");
+      } else {
+        button.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  setActive(buttons[0].panel);
+
+  const ratios = new Map();
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        ratios.set(entry.target, entry.intersectionRatio);
+      });
+
+      let bestPanel = null;
+      let bestRatio = 0;
+      ratios.forEach((ratio, panel) => {
+        if (ratio > bestRatio) {
+          bestRatio = ratio;
+          bestPanel = panel;
+        }
+      });
+
+      if (bestPanel) setActive(bestPanel);
+    },
+    {
+      root: scrollRoot,
+      threshold: [0, 0.25, 0.5, 0.55, 0.75, 1],
+    }
+  );
+
+  buttons.forEach(({ panel }) => observer.observe(panel));
+}
+
 document.querySelectorAll(".home-scroll").forEach((scrollRoot) => {
-  const panels = scrollRoot.querySelectorAll(".home-panel");
+  const panels = [...scrollRoot.querySelectorAll(".home-panel")];
+
   panels.forEach((panel, index) => {
     if (index === panels.length - 1) return;
 
@@ -36,4 +130,12 @@ document.querySelectorAll(".home-scroll").forEach((scrollRoot) => {
     }
     bindScrollHint(hint, next);
   });
+
+  const navPanels = panels.filter((panel) => panel.hasAttribute("data-nav-icon"));
+  if (!navPanels.length) return;
+
+  const { nav, buttons } = createHomeNav(navPanels);
+  document.body.insertBefore(nav, document.body.firstChild);
+  renderNavIcons(nav);
+  bindNavActiveState(scrollRoot, buttons);
 });

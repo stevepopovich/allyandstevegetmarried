@@ -19,7 +19,12 @@
   </head>
   <body class="home-fullpage">
     <div class="home-scroll">
-      <section class="home-panel home-panel--hero" aria-label="We're getting married">
+      <section
+        id="hero"
+        class="home-panel home-panel--hero"
+        aria-label="We're getting married"
+        data-nav-icon="heart"
+      >
         <div class="hero-stack">
           <p class="hero-title">We're Getting Married</p>
           <img
@@ -33,7 +38,12 @@
         </div>
       </section>
 
-      <section class="home-panel home-panel--save-date-v2" aria-label="Save the date">
+      <section
+        id="save-the-date"
+        class="home-panel home-panel--save-date-v2"
+        aria-label="Save the date"
+        data-nav-icon="calendar"
+      >
         <div class="save-date-v2">
           <p class="bodoni-stack" aria-label="Save the Date">
             <span class="bodoni-stack__small">Save the</span>
@@ -64,7 +74,12 @@
         </div>
       </section>
 
-      <section class="home-panel home-panel--celebration" aria-label="Celebration">
+      <section
+        id="celebration"
+        class="home-panel home-panel--celebration"
+        aria-label="Celebration"
+        data-nav-icon="map-pin"
+      >
         <div class="celebration-stack">
           <p class="bodoni-stack">
             <span class="bodoni-stack__small">Please join us for the</span>
@@ -94,7 +109,12 @@
         </div>
       </section>
 
-      <section class="home-panel home-panel--event-flow" aria-label="Event schedule">
+      <section
+        id="schedule"
+        class="home-panel home-panel--event-flow"
+        aria-label="Event schedule"
+        data-nav-icon="wine"
+      >
         <div class="event-flow">
           <div class="event-flow__col">
             <img
@@ -133,7 +153,12 @@
         </div>
       </section>
 
-      <section class="home-panel home-panel--details" aria-label="Additional details">
+      <section
+        id="details"
+        class="home-panel home-panel--details"
+        aria-label="Additional details"
+        data-nav-icon="info"
+      >
         <div class="details-page">
           <p class="details-page__header bodoni-stack">
             <span class="bodoni-stack__small">Additional</span>
@@ -208,7 +233,12 @@
         </div>
       </section>
 
-      <section class="home-panel home-panel--rsvp" aria-label="RSVP">
+      <section
+        id="rsvp-panel"
+        class="home-panel home-panel--rsvp"
+        aria-label="RSVP"
+        data-nav-icon="mail"
+      >
         <p class="rsvp-page__header bodoni-stack">
           <span class="bodoni-stack__small">Kindly</span>
           <span class="bodoni-stack__large">RSVP</span>
@@ -252,6 +282,7 @@
       </section>
     </div>
     <script src="/app.js" type="module"></script>
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
     <script src="/home-scroll.js" defer></script>
   </body>
 </html>

@@ -19,7 +19,12 @@
   </head>
   <body class="home-fullpage family-page">
     <div class="home-scroll">
-      <section class="home-panel home-panel--hero" aria-label="We're getting married">
+      <section
+        id="hero"
+        class="home-panel home-panel--hero"
+        aria-label="We're getting married"
+        data-nav-icon="heart"
+      >
         <div class="hero-stack">
           <p class="hero-title">We're Getting Married</p>
           <img
@@ -34,8 +39,10 @@
       </section>
 
       <section
+        id="save-the-dates"
         class="home-panel home-panel--save-date-v2 family-panel--save-dates"
         aria-label="Save the dates"
+        data-nav-icon="calendar-days"
       >
         <div class="save-date-v2 family-save-dates">
           <p class="bodoni-stack" aria-label="Save the Dates">
@@ -78,7 +85,12 @@
         </div>
       </section>
 
-      <section class="home-panel home-panel--ceremony" aria-label="The ceremony">
+      <section
+        id="ceremony"
+        class="home-panel home-panel--ceremony"
+        aria-label="The ceremony"
+        data-nav-icon="church"
+      >
         <div class="ceremony-page">
           <p class="ceremony-page__header bodoni-stack">
             <span class="bodoni-stack__small">The</span>
@@ -110,7 +122,12 @@
         </div>
       </section>
 
-      <section class="home-panel home-panel--event-flow" aria-label="Weekend schedule">
+      <section
+        id="schedule"
+        class="home-panel home-panel--event-flow"
+        aria-label="Weekend schedule"
+        data-nav-icon="utensils"
+      >
         <div class="event-flow">
           <div class="event-flow__col">
             <img
@@ -148,7 +165,12 @@
         </div>
       </section>
 
-      <section class="home-panel home-panel--details" aria-label="Additional details">
+      <section
+        id="details"
+        class="home-panel home-panel--details"
+        aria-label="Additional details"
+        data-nav-icon="hotel"
+      >
         <div class="details-page">
           <p class="details-page__header bodoni-stack">
             <span class="bodoni-stack__small">Additional</span>
@@ -218,6 +240,7 @@
         </div>
       </section>
     </div>
+    <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js" defer></script>
     <script src="/home-scroll.js" defer></script>
   </body>
 </html>
