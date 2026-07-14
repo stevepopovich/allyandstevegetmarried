@@ -1323,13 +1323,15 @@ body.home-fullpage .details-grid {
 }
 
 .home-panel--rsvp .section-rsvp {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: 28rem;
   margin: 0;
   padding: clamp(1.25rem, 3vw, 1.75rem);
-  background: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(74, 68, 32, 0.25);
-  border-radius: 4px;
+  background: var(--mustard-bg);
+  border: 1px solid var(--border);
+  border-radius: 0;
 }
 
 .home-panel--rsvp .section-rsvp h2 {
@@ -1343,22 +1345,60 @@ body.home-fullpage .details-grid {
   font-size: 0.9rem;
 }
 
+.home-panel--rsvp .rsvp-note {
+  margin: 0.75rem 0 0;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
 .home-panel--rsvp .field span,
-.home-panel--rsvp .attending-fieldset legend {
+.home-panel--rsvp .attending-fieldset legend,
+.home-panel--rsvp .choice {
   font-family: "Montserrat", system-ui, sans-serif;
   color: var(--mustard-text);
 }
 
 .home-panel--rsvp .field input {
-  border-color: rgba(74, 68, 32, 0.35);
-  background: rgba(255, 255, 255, 0.5);
+  font-family: "Montserrat", system-ui, sans-serif;
+  color: var(--mustard-text);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  background: rgba(74, 68, 32, 0.06);
 }
 
-.home-panel--rsvp .submit {
-  background: var(--mustard-text);
-  color: var(--mustard-bg);
+.home-panel--rsvp .field input:focus {
+  outline: 2px solid var(--mustard-text);
+  outline-offset: 2px;
+}
+
+.home-panel--rsvp .pill-btn {
+  align-self: flex-start;
+}
+
+.home-panel--rsvp .form-message.error {
+  color: #6b3a2a;
+}
+
+.home-panel--rsvp .form-message.success {
+  color: #3d4f2e;
+}
+
+.home-panel--rsvp .rsvp-help {
+  margin: 0.25rem 0 0;
   font-family: "Montserrat", system-ui, sans-serif;
-  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.home-panel--rsvp .rsvp-help a {
+  color: var(--mustard-text);
+  text-decoration: none;
+}
+
+.home-panel--rsvp .rsvp-help a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 767px) {
