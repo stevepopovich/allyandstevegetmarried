@@ -78,8 +78,8 @@ if (form && messageEl) form.addEventListener("submit", async (e) => {
   }
 
   const attending = attendingInput.value === "yes";
-  const submitBtn = form.querySelector(".submit");
-  submitBtn.disabled = true;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  if (submitBtn) submitBtn.disabled = true;
 
   try {
     const res = await fetch("/.netlify/functions/rsvp", {
@@ -100,6 +100,6 @@ if (form && messageEl) form.addEventListener("submit", async (e) => {
   } catch {
     setMessage("Could not reach the server. Check your connection and try again.", "error");
   } finally {
-    submitBtn.disabled = false;
+    if (submitBtn) submitBtn.disabled = false;
   }
 });

@@ -31,21 +31,16 @@ function createHomeNav(panels) {
   const buttons = [];
 
   panels.forEach((panel) => {
-    const iconName = panel.getAttribute("data-nav-icon");
-    if (!iconName) return;
+    const navLabel = panel.getAttribute("data-nav-label");
+    if (!navLabel) return;
 
-    const label = panel.getAttribute("aria-label") || "Section";
+    const a11yLabel = panel.getAttribute("aria-label") || navLabel;
     const button = document.createElement("button");
     button.type = "button";
     button.className = "home-nav__btn";
-    button.setAttribute("aria-label", label);
+    button.setAttribute("aria-label", a11yLabel);
     button.dataset.target = panel.id;
-
-    const icon = document.createElement("i");
-    icon.className = "home-nav__icon";
-    icon.setAttribute("data-lucide", iconName);
-    icon.setAttribute("aria-hidden", "true");
-    button.appendChild(icon);
+    button.textContent = navLabel;
 
     button.addEventListener("click", () => {
       panel.scrollIntoView({ behavior: scrollBehavior(), block: "start" });
@@ -56,19 +51,6 @@ function createHomeNav(panels) {
   });
 
   return { nav, buttons };
-}
-
-function renderNavIcons(nav) {
-  if (typeof lucide === "undefined" || typeof lucide.createIcons !== "function") {
-    return;
-  }
-  lucide.createIcons({
-    attrs: {
-      class: "home-nav__icon",
-      "stroke-width": 1.75,
-      "aria-hidden": "true",
-    },
-  });
 }
 
 function bindNavActiveState(scrollRoot, buttons) {
@@ -131,11 +113,10 @@ document.querySelectorAll(".home-scroll").forEach((scrollRoot) => {
     bindScrollHint(hint, next);
   });
 
-  const navPanels = panels.filter((panel) => panel.hasAttribute("data-nav-icon"));
+  const navPanels = panels.filter((panel) => panel.hasAttribute("data-nav-label"));
   if (!navPanels.length) return;
 
   const { nav, buttons } = createHomeNav(navPanels);
   document.body.insertBefore(nav, document.body.firstChild);
-  renderNavIcons(nav);
   bindNavActiveState(scrollRoot, buttons);
 });
