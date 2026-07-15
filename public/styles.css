@@ -609,15 +609,10 @@ body.family-page {
   gap: clamp(0.25rem, 1.25vw, 0.625rem);
 }
 
-.family-save-dates__col .save-date-v2__illustration--cake,
-.family-save-dates__col .save-date-v2__illustration--toast {
+.family-save-dates__col .save-date-v2__illustration--std {
   height: min(30vh, 15rem);
   width: auto;
-  max-width: min(24vw, 13rem);
-}
-
-.family-save-dates__col .save-date-v2__illustration--toast {
-  padding-bottom: 10px;
+  max-width: min(42vw, 18rem);
 }
 
 @media (max-width: 640px) {
@@ -631,10 +626,9 @@ body.family-page {
     max-width: min(44vw, 15.4rem);
   }
 
-  .family-save-dates__col .save-date-v2__illustration--cake,
-  .family-save-dates__col .save-date-v2__illustration--toast {
+  .family-save-dates__col .save-date-v2__illustration--std {
     height: min(22vh, 11rem);
-    max-width: min(40vw, 14rem);
+    max-width: min(48vw, 16rem);
   }
 }
 
@@ -904,9 +898,8 @@ body.family-page {
 
 .save-date-v2__illustrations {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  gap: clamp(0.125rem, 0.75vw, 0.5rem);
   margin-top: clamp(0.5rem, 2vh, 1.25rem);
   width: 100%;
 }
@@ -917,24 +910,13 @@ body.family-page {
   filter: var(--illustration-filter);
 }
 
-.save-date-v2__illustration--cake {
-  width: min(44.8vw, 25.2rem);
-  align-self: flex-end;
-}
-
-.save-date-v2__illustration--toast {
-  width: min(28vw, 15.5rem);
-  align-self: flex-end;
-  padding-bottom: 10px;
+.save-date-v2__illustration--std {
+  width: min(56vw, 28rem);
 }
 
 @media (max-width: 480px) {
-  .save-date-v2__illustration--cake {
-    width: min(53.2vw, 15.4rem);
-  }
-
-  .save-date-v2__illustration--toast {
-    width: min(34vw, 9.5rem);
+  .save-date-v2__illustration--std {
+    width: min(72vw, 18rem);
   }
 }
 
