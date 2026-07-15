@@ -98,6 +98,74 @@ function bindNavActiveState(scrollRoot, buttons) {
   buttons.forEach(({ panel }) => observer.observe(panel));
 }
 
+function createSwipeHint() {
+  const hint = document.createElement("div");
+  hint.className = "trio-swipe-hint";
+  hint.setAttribute("aria-hidden", "true");
+  hint.innerHTML = `<svg class="trio-swipe-hint__arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 347.98 200.44" width="36" height="21" aria-hidden="true">
+    <polyline fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" points="3 3.25 173.83 135.3 344.98 3"/>
+    <polyline fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="6" points="3 65.39 173.83 197.44 344.98 65.14"/>
+  </svg>`;
+  return hint;
+}
+
+function ensureScrollerWrap(scroller) {
+  let wrap = scroller.parentElement;
+  if (!wrap || !wrap.classList.contains("trio-slide__scroller-wrap")) {
+    wrap = document.createElement("div");
+    wrap.className = "trio-slide__scroller-wrap";
+    scroller.before(wrap);
+    wrap.appendChild(scroller);
+  }
+
+  let hint = wrap.querySelector(".trio-swipe-hint");
+  if (!hint) {
+    hint = createSwipeHint();
+    wrap.appendChild(hint);
+  }
+
+  return { wrap, hint };
+}
+
+function bindTrioScrollers(root = document) {
+  const scrollers = [...root.querySelectorAll(".trio-slide__scroller")];
+  if (!scrollers.length) return;
+
+  const updateScroller = (scroller, hint) => {
+    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+    const isScrollable = maxScroll > 1;
+    const isAtEnd = !isScrollable || scroller.scrollLeft >= maxScroll - 2;
+    scroller.classList.toggle("is-scrollable", isScrollable);
+    scroller.classList.toggle("is-at-end", isAtEnd);
+    hint.classList.toggle("is-visible", isScrollable && !isAtEnd);
+  };
+
+  const bindings = scrollers.map((scroller) => {
+    const { hint } = ensureScrollerWrap(scroller);
+    return { scroller, hint };
+  });
+
+  const updateAll = () => {
+    bindings.forEach(({ scroller, hint }) => updateScroller(scroller, hint));
+  };
+
+  bindings.forEach(({ scroller, hint }) => {
+    scroller.addEventListener("scroll", () => updateScroller(scroller, hint), {
+      passive: true,
+    });
+
+    if (typeof ResizeObserver !== "undefined") {
+      const observer = new ResizeObserver(updateAll);
+      observer.observe(scroller);
+      const track = scroller.querySelector(".trio-slide__track");
+      if (track) observer.observe(track);
+    }
+  });
+
+  window.addEventListener("resize", updateAll);
+  updateAll();
+}
+
 document.querySelectorAll(".home-scroll").forEach((scrollRoot) => {
   const panels = [...scrollRoot.querySelectorAll(".home-panel")];
 
@@ -112,6 +180,8 @@ document.querySelectorAll(".home-scroll").forEach((scrollRoot) => {
     }
     bindScrollHint(hint, next);
   });
+
+  bindTrioScrollers(scrollRoot);
 
   const navPanels = panels.filter((panel) => panel.hasAttribute("data-nav-label"));
   if (!navPanels.length) return;
