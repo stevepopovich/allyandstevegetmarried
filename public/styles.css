@@ -903,7 +903,7 @@ body.family-page {
 }
 
 .save-date-v2__illustration--std {
-  width: min(56vw, 28rem);
+  width: min(48vw, 20rem);
 }
 
 @media (max-width: 480px) {
