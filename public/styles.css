@@ -932,6 +932,7 @@ body.family-page {
 .home-panel--save-date-v2 .bodoni-stack__large {
   white-space: nowrap;
   max-width: 100%;
+  font-size: min(4rem, 12cqi);
 }
 
 .celebration-stack {
@@ -1331,8 +1332,16 @@ body.family-page {
   position: absolute;
   top: calc(var(--home-nav-h) + clamp(0.5rem, 1.5vh, 1rem));
   left: clamp(1.5rem, 5vw, 3rem);
+  right: clamp(1.5rem, 5vw, 3rem);
   z-index: 2;
   text-align: left;
+  container-type: inline-size;
+}
+
+.home-panel--rsvp .bodoni-stack__large {
+  white-space: nowrap;
+  max-width: 100%;
+  font-size: min(4rem, 22cqi);
 }
 
 .rsvp-page {
@@ -1344,6 +1353,8 @@ body.family-page {
   max-width: min(95vw, 40rem);
   min-height: calc(100vh - 4rem);
   margin: 0 auto;
+  /* Clear absolute "Kindly RSVP" header (small + large line + gap) */
+  padding-top: calc(1.75rem + 4rem + 0.75rem);
 }
 
 .rsvp-page__header {
