@@ -945,6 +945,15 @@ body.family-page {
   gap: clamp(1.5rem, 4vh, 2.5rem);
 }
 
+.celebration-note {
+  margin: -0.75rem 0 0;
+  max-width: 22rem;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
 .home-panel--celebration .section-illustration--wide {
   width: auto;
   max-width: 650px;
